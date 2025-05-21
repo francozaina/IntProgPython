@@ -73,7 +73,24 @@ def ordenados (lista:List[int]) -> bool:
         res = False
         print (res)
 ordenados ([1,2,3,4,5])
+def columnas_ordenadas (m:List[List[int]]) -> List[bool]:
+    
+    res : list [bool] = []
+    columna : list[int] = []
+    for col in range (len(m[0])):
+        for row in range (len(m)):
+            columna : list [int] = []
+        if (ordenados (columna)== True):
+            res.append(True)
+        else:
+            res.append (False)
+        columna.clear()
+    return res            
 
+m4 =    [[1, 4, 7],
+        [5, 2, 8],
+        [3, 6, 9]]
+print(columnas_ordenadas(m4))
 
 
 
