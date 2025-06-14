@@ -319,7 +319,86 @@ def transponer (matriz:List[List[int]])-> List[List[int]]:
     print(transpuesta)
     return transpuesta          
 transponer(m2)
+
 #3.7
+#Auxiliares
+tablero = [['X', 'O', 'X'],
+    ['X', 'O', 'O'],
+    ['O', 'X', 'X']]
+
+def columnaTateti (tateti:List[List[str]], num : int) -> List[str]:
+    lista_final = []
+    for fila in tateti:
+        lista_final.append(fila[num])
+    return lista_final
+
+def filaTateti(tateti:List[List[str]], num : int) -> List[str]:
+    lista_final = []
+    for fila in tateti[num]:
+        lista_final.append(fila)
+    return lista_final
+
+def diagonalTateti(tateti:List[List[str]]) -> List[str]:
+    lista_final = []
+    num = 0
+    for fila in tateti:
+        lista_final.append(fila[num])
+        num += 1
+    return lista_final
+ 
+def diagonalInversaTateti(tateti:List[List[str]]) -> List[str]:
+    lista_final = []
+    num = 2
+    for fila in tateti:
+        lista_final.append(fila[num])
+        num -= 1
+    return lista_final
+diagonalInversaTateti(tablero)
+
+def tateti (tablero:List[List[str]])-> int:
+    res = 0
+    num = 0
+    #Chequeo las X
+    for i in range (len(tablero[0])):
+        if columnaTateti(tablero,num) == ["X","X","X"]:
+            res = 1
+            return res
+        num += 1
+    num = 0
+    for j in range(len(tablero[0])):
+        if filaTateti(tablero,num) == ["X","X","X"]:
+            res = 1
+            return res
+        num +=1
+    if diagonalTateti(tablero) == ["X","X","X"]:
+        res = 1
+        return res  
+    elif diagonalInversaTateti(tablero) == ["X","X","X"]:
+        res = 1
+        return res
+    #Chequeo las O
+    num = 0
+    for k in range (len(tablero[0])):
+        if columnaTateti(tablero,num) == ["O","O","O"]:
+            res = 0
+            return res
+        num += 1
+    num = 0
+    for m in range(len(tablero[0])):
+        if filaTateti(tablero,num) == ["O","O","O"]:
+            res = 0
+            return res
+        num +=1
+    if diagonalTateti(tablero) == ["O","O","O"]:
+        res = 0
+        return res  
+    elif diagonalInversaTateti(tablero) == ["O","O","O"]:
+        res = 0
+        return res
+    #Si no entra a nada devuelve empate
+    res = 2
+    return res
+print(tateti(tablero)) 
 
 
 
