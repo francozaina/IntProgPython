@@ -143,11 +143,11 @@ def racha_mas_larga (tiempos:List[int]) -> Tuple[int, int]:
     return res
 racha_mas_larga(tiempos)
 amigos_por_salas = [
-    [0, 0, 20, 0],  # ✅
-    [0, 0, 45, 0],  # ✅
-    [0, 0, 0, 0],   # ❌ el tercero no fue
-    [1, 0, 10, 0],  # ❌ el primero fue
-    [0, 0, 30, 1],  # ❌ el cuarto fue
+    [0, 0, 20, 0], 
+    [0, 0, 45, 0],  
+    [0, 0, 0, 0],   
+    [1, 0, 10, 0],  
+    [0, 0, 30, 1],  
 ]
 def escape_en_solitario (matriz: List[List[int]])->List[int]:
     res = []
@@ -162,12 +162,11 @@ escape_en_solitario(amigos_por_salas)
 def torneo_de_gallinas(estrategias: Dict[str, str]) -> Dict[str, int]:
     jugadores = list(estrategias.keys())
     
-    # Inicializar puntajes con for convencional
     puntajes = {}
     for jugador in jugadores:
         puntajes[jugador] = 0
 
-    # Comparar todos contra todos una sola vez
+  
     for i in range(len(jugadores)):
         for j in range(i + 1, len(jugadores)):
             j1 = jugadores[i]
